@@ -44,7 +44,7 @@ Resources:
 
 ​		in strings, don't have to do \n anymore. 
 
-​		`'{teacher.name} please see {teacher}'`
+​		`'${teacher.name} please see ${teacher}'`
 
 **comments**: //, /* */
 
@@ -148,6 +148,12 @@ or: **function expression** (not hoisted!)
 
 
 
+**default parameters:** function func(param = 1 )
+
+`Func([a=5, b=5] = []) {  //func() `can also be called, will invoke [a, b]
+
+
+
 #### arrow functions
 
 ​		paramName => returnValue
@@ -225,6 +231,8 @@ name => { //multiline, use curly braces and return keyword
 ​			specifying elements you want to extract from array on left side:`const [x, y, z] = point; //where point = [a, b, c]`
 
 ​       	 ignoring elements: `const [x, , z] = point;`
+
+​			
 
 
 
