@@ -42,6 +42,10 @@ Resources:
 
 **concatenation**: "hello"+ 5*10 -> hello50
 
+​		in strings, don't have to do \n anymore. 
+
+​		`'{teacher.name} please see {teacher}'`
+
 **comments**: //, /* */
 
 **ternary operator**: `var color = isGoing ? "green" : "red"` //where isGoing is bool
@@ -51,6 +55,14 @@ Resources:
 ​        `case 1: \n ....\n  case 2: \n ..`.
 
 ​       ` default:` (will fall through and execute this too)
+
+**variables**: 
+
+​	` 	let`- could change later 
+
+​	`const` - won't change
+
+ and const 
 
  **loops**
 
@@ -108,7 +120,9 @@ function heat(a, b) {
 
   **hoisting** - function declarations are hoisted to the top of the current scope, so you can use them before they're declared
 
-​        in functions, variable declarations are always hoisted to the top of the scope, but not the assignment. so if you did `var x = 6 `later, it would be undefined at the top of the scope but assigned later
+​        in functions, variable declarations are always hoisted to the top of the scope, but not the assignment. so if you did `var x = 6 `later, it would be undefined at the top of the scope but assigned later.
+
+​		NOT FOR LET OR CONST!
 
 or: **function expression** (not hoisted!)
 
@@ -132,13 +146,49 @@ or: **function expression** (not hoisted!)
 
 ​    or can just declare function as usual
 
+
+
+#### arrow functions
+
+​		paramName => returnValue
+
+​       ` const upperizedNames = ['Kaili', 'Kevin'].map(name => name.toUpperCase()); `(name is the parameter/elem, and changes it.
+
+​        ALWAYS EXPRESSIONS. stored in a variable, passed as an argument to a function, or stored in object's property 
+
+​        if there are 0 or >1 parameters, do: 
+
+​            `const sayHi = () => console.log('hello'); //or could use _ instead of ()`
+
+​            `or const sayHi = (param1, param2) => .... `
+
+block body syntax: 
+
+```javascript
+name => { //multiline, use curly braces and return keyword
+	name = name.toUpperCase();
+	return '${name}';}
+```
+
+
+
+​    with "this":
+
+​        'this' is based on context. 'this' within arrow function is the same as outside arrow function
+
+​        refers to what obj called the func
+
+
+
+
+
 ---
 
 
 
 ###arrays
 
-​    var donuts = [1, 2, 3]
+​    `var donuts = [1, 2, 3]`
 
 ​    can mix data types
 
@@ -156,7 +206,7 @@ or: **function expression** (not hoisted!)
 
 ​    forEach (only for arrays)
 
-​    _array_.forEach()=(func); //where func is the name of a function, func(element), or func(element, index, array)
+​    **_array_.forEach()**=(func); //where func is the name of a function, func(element), or func(element, index, array)
 
 ​        or __array__.forEach(function(param) {
 
@@ -166,119 +216,87 @@ or: **function expression** (not hoisted!)
 
 
 
-​    .map(func) //returns new array, doesn't modify the old one. func has to have "return elem" at the end 
+​    **.map(func)** //returns new array, doesn't modify the old one. func has to have "return elem" at the end 
 
-​    .filter(condition function that returns true or false)
+​    **.filter**(condition function that returns true or false)
+
+​	**destructuring** 
+
+​			specifying elements you want to extract from array on left side:`const [x, y, z] = point; //where point = [a, b, c]`
+
+​       	 ignoring elements: `const [x, , z] = point;`
 
 
 
-objects
+
+
+
+
+---
+
+
+
+###objects
 
 ​    includes arrays
 
-​    var obj = {};
+​    `var obj = {};`
 
-​    or: var obj = { //this is object-literal notation
+​    or: 
 
-​        color: "pink", //key: value 
-
-​        isOpen: false,
-
-​        open: function() {
-
-​            ..
-
-​        }
-
-
+```javascript
+var obj = { //this is object-literal notation
+  color: "pink", //key: value 
+	isOpen: false,
+	open: function() {
+}
+```
 
 ​    data structure that allows you to store any data. 
 
-​    typeof ______ -> returns the type 
+​    **typeof \_\_** -> returns the type
 
-​    
-
-​    property vs method 
+​    **property vs method** 
 
 ​        obj.prop or obj["prop"] (dot vs bracket notation)
 
 ​        obj.method()
 
-​    
-
 ​        property names: don't use numbers as the first character in property names
 
 ​            don't use spaces or hyphens either
+
+​	**destructuring** - `const {prop1, prop2, prop3} = obj; `//given that those are the actual property names
+
+​	 **object literal shorthand**
+
+​        if the variables are the same names as the fields, then just do 
+
+​            `let objName = {field1, field2, field3}; `//assumign fields are vars with values 
+
+​       	 `let objName = {field1, method1() {...}};`
 
 '
 
 
 
-es6, harmony, es2015
+##es6, harmony, es2015
 
 
 
-syntax
-
-​    let and const: replaces var and sets it in the temporal dead zone until variable's declaration is processed (can't be accessed until they've been declared). if tried to access, returns reference error 
-
-​        let can be reassigned, but can't be redeclared int he same scope.
-
-​        const is assigned inital value, but can't be redeclared (in same scope) or reassigned. 
+   ### iteration
 
 
-
-​        DON'T USE VAR ANYMORE
-
-
-
-​    concatenation:
-
-​        template literals/strings
-
-​        let message = `${student.name} please see ${teacher}. //don't have to do \n anymore
-
-​            new line'
-
-
-
-​    destructuring:
-
-​        specifying elements you want to extract from array on left side
-
-​        const [x, y, z] = point; //where point = [a, b, c]
-
-​        ignoring elements:
-
-​            const [x, , z] = point;
-
-
-
-​        can also destructure values from object: const {prop1, prop2, prop3} = obj; (if prop1 is an actual prop name in obj, it will extract that property)
-
-
-
-​    object literal shorthand
-
-​        if the variables are the same names as the fields, then just do 
-
-​            let objName = {field1, field2, field3}; //assumign fields are vars with values 
-
-​        let objName = {field1, method1() {...}};
-
-
-
-​    iteration
 
 ​        there is a new iterable protocol
 
-​        for...in loop - elimates counting logic and exit condition.
+​        **for...in loop** - elimates counting logic and exit condition.
 
-​            for (const index in digits) { //where digits is an array //index is literally the index, not the elem
+​            `for (const index in digits) { `//where digits is an array //index is literally the index, not the elem
 
 ​            doesn't really work if you add another method to an object (will loop over this property too)
 
-​        for...of loop - loops over anything that is iterable
+​        **for...of loop** - loops over anything that is iterable
 
 ​            for (const digit of digits) { //digit is literally an elem
 
@@ -288,92 +306,46 @@ syntax
 
 
 
-​    spread operator
+    ### spread & rest operator (…)
+
+
+
+**Spread**
 
 ​        expands/spreads iterable objects into multiple elements
 
-​        console.log(...arr); which prints all the elements in array arr, separated by spaces 
+​        `console.log(...arr); `which prints all the elements in array arr, separated by spaces 
 
-​    rest parameter: represents indefinite number of elements as an array
+ **rest** parameter: represents indefinite number of elements as an array
 
 ​        ...items = arr //where you don't know how many elements arr is  (boxing the elements)
 
 
 
-​    variadic functions: takes an indefinite number of arguments 
+**variadic functions**: takes an indefinite number of arguments 
 
-​        before es6: did func(), and used "for argument in arguments"
-
-​        now: 
-
-​            function sum(...nums) {
+​            `function sum(...nums) {`
 
 
 
+###this
 
+In order of priority:       
 
-functions
+1. new binding
 
-​    arrow functions -  paramName => returnValue
+​           ` var bar = new foo(2); //'this' within foo will refer to bar `
 
-​        const upperizedNames = ['Kaili', 'Kevin'].map(name => name.toUpperCase()); (name is the parameter/elem, and changes it. 
+2. explicit binding (with call(obj))
 
+   hardbinding can't change what var bar = foo.call(obj) binds to 
 
+3. implicit binding
 
-​        ALWAYS EXPRESSIONS. stored in a variable, passed as an argument to a function, or stored in object's property 
+   `obj1.foo()`
 
+   implicit lost: whenenver references link back to original function
 
-
-​        if there are 0 or >1 parameters, do: 
-
-​            const sayHi = () => console.log('hello'); //or could use _ instead of ()
-
-​            or const sayHi = (param1, param2) => .... 
-
-
-
-​        block body syntax: name => { //multiline, use curly braces and return keyword
-
-​            name = name.toUpperCase();
-
-​            return '${name}';}
-
-​    with "this":
-
-​        'this' is based on context. 'this' within arrow function is the same as outside arrow function
-
-​        refers to what obj called the func
-
-
-
-
-
-this
-
-​    this - refers to the call space, where the function was called. this could be the global space, which means this.a is global variable a. 
-
-​    func.call(var) - 'this' inside func refers to var. 
-
-​        call: accepts thisArg (optional), and the remaining arguments 
-
-​    func.property - function object reference. 
-
-​    "use strict"; - will not allow things to be boudn to global space (THIS woudl be undefined)
-
-​    rules
-
-​        PRIORITY FOUR: default binding: this points at the global object, or whatever scope the function is called FROM. (callsite)
-
-​        PRIORITY THREE: implicit binding: when foo() is a method of an object (CONTEXT OBJECT) (ex. Obj1.foo())
-
-​            implicitly lost: references are linked back to original function
-
-​        PRIORITY TWO: explicit binding: call(obj)
-
-​            hard binding: can't change what var bar = foo.call(obj) binds to. 
-
-​        PRIORITY ONE: 'new' binding
-
-​            var bar = new foo(2); //'this' within foo will refer to bar 
+4. default binding: points at global object, or undefined if in `"use strict";`
 
 ​            
