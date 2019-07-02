@@ -192,7 +192,7 @@ name => { //multiline, use curly braces and return keyword
 
 
 
-###arrays
+### arrays
 
 ​    `var donuts = [1, 2, 3]`
 
@@ -244,7 +244,7 @@ name => { //multiline, use curly braces and return keyword
 
 
 
-###objects
+### objects
 
 ​    includes arrays
 

@@ -1,5 +1,7 @@
 # ROS
 
+---
+
 
 
 rospack find [package name] -> returns the path
@@ -90,7 +92,7 @@ rosparam
 
 
 
-concepts:
+## Concepts:
 
 ​    package: smallest unit to produce. includes a full project 
 
