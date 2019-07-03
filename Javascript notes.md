@@ -348,6 +348,23 @@ class boeing747 extends Plane { //subclass of Plane
 
 
 
+### Timing Events
+
+##### setInterval(functionExpression, milliseconds, [arguments from functionExpression]) 
+
+- runs a function multiple times with a delay between each run 
+- stopped by clearInterval(timer)
+
+##### setTimeout(functionExpression, milliseconds)
+
+- function won't be executed until specified number of millis
+- stopped by clearTimeout(timer)
+
+```javascript
+let timerId = setTimeout(func, 1000); //func, not func()! because func() would give return value
+clearTimeout(timerId); //quits the timer 
+```
+
 
 
 ## es6, harmony, es2015
