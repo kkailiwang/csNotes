@@ -17,14 +17,14 @@ Resources:
 
 |   Type    | Passed by | Notes                                                        |      |      |      |
 | :-------: | :-------: | ------------------------------------------------------------ | ---- | ---- | ---- |
-|   bool    |   array   |                                                              |      |      |      |
-|   null    | function  | value = nothing                                              |      |      |      |
-| undefined |  Object   | absence of value                                             |      |      |      |
+|   bool    |           |                                                              |      |      |      |
+|   null    |           | value = nothing                                              |      |      |      |
+| undefined |           | absence of value                                             |      |      |      |
 |  string   |           | \'\' is preferred over \" \" <br>\\ to escape                |      |      |      |
 |  Number   |           | Positive, negative or decimal <br>Could be NaN if returns error |      |      |      |
-|   Array   |           |                                                              |      |      |      |
-| function  |           |                                                              |      |      |      |
-|  Object   |           |                                                              |      |      |      |
+|   Array   |    ref    |                                                              |      |      |      |
+| function  |    ref    |                                                              |      |      |      |
+|  Object   |    ref    |                                                              |      |      |      |
 
 
 
