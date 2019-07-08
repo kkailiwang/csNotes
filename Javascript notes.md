@@ -627,3 +627,14 @@ A subcategory of compiling
 It can convert es6 to es5, or human-readable code to other human-readable code 
 
 Javascript's most popular transpiler: Babel
+
+
+
+## Package.json
+
+This file specifies which packages your project depends on. 
+
+- Dependencies: packages required by application for production
+  - npm install <package-name> [--save-prod]
+- DevDependencies: packages just required by testing
+
