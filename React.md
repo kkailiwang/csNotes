@@ -395,3 +395,39 @@ Don't use inheritance!
 5. Add inverse data flow
    1. callbacks with setState 
    2. in the child, you can access parent's callbacks through the property passed to them. The parent's callback will set the state 
+
+
+
+
+
+
+
+# Redux
+
+What it is: a predictable state container for JS apps that imposes restrictions on how/when updates can happen.
+
+
+
+### Structure
+
+State of the app is stored in a **store**. You can change the state by emitting an **action**. A **reducer** specifies how the actions transforms the state tree.  
+
+
+
+### Core Concepts
+
+#### Three principles
+
+- Single source of truth: state of whole app is stored within an object tree in a store.
+
+- State is read-only: you have to emit an action to change the state
+
+  - ```react
+    store.dispatch({
+        type: 'COMPLETE_TODO',
+        index: 1
+    })
+    ```
+
+- Changes are made with pure functions
+  - reducers 
