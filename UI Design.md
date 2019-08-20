@@ -9,6 +9,10 @@ Resources:
 
 
 
+CHECK THIS OUT!!
+
+- Material Design: https://material.io/design/
+
 
 
 ## Layout

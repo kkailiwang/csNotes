@@ -132,6 +132,7 @@ React treats components starting with lowercase as DOM tags. so start component 
 
 - when a `key` changes, React will create a new component instance rather than update the current one. 
 - often used for dynamic lists 
+- https://dev.to/jtonzing/the-significance-of-react-keys---a-visual-explanation--56l7
 
 #### Props must be read only
 
@@ -393,7 +394,7 @@ Don't use inheritance!
 
 
 
-## General tips (read more! reactjs.org)
+## General tips (read more! www.reactjs.org)
 
 1. Decide on components: 
    1. single responsibility principle: each component should only do one thing. (otherwise, decompose!)
@@ -406,7 +407,7 @@ Don't use inheritance!
       2. remains unchanged over time
       3. can compute it based on any other state or props 
 4. Identify where state should live
-   1. identify ever component that renders something based on that state
+   1. identify every component that renders something based on that state
    2. find a common owner component
    3. either the common owner or another component higher up in the hierarchy should own the state
    4. if that doesn't work, create a new component to hold the state 

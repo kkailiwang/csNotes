@@ -612,6 +612,8 @@ It's like getters and setters, but you don't need to know the properties!
 
 ## Javascript and browsers
 
+Source: https://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/
+
 
 
 ### Polyfill
@@ -627,6 +629,115 @@ A subcategory of compiling
 It can convert es6 to es5, or human-readable code to other human-readable code 
 
 Javascript's most popular transpiler: Babel
+
+
+
+### Javascript engine and optimizing code
+
+
+
+#### V8 
+
+is the javascript engine in Chrome and Node
+
+Represents objects in object model (represents objects as hidden classes, optimizes lookups)
+
+Has:
+
+- base compiler (parses js)
+
+- runtime profiler: monitors system, identifies "hot" functions
+
+- optimizing compiler: recompiles and optimizes the "hot" functions identified, such as using inlining (insetting functions in the body of the callee)
+
+- can deoptimize, if it overassumed (?)
+
+- garbage collector 
+
+  - form of memory management. 
+  - Objects that are still referenced by application are not cleaned up. 
+  - Will automatically clean if you **STORE VARIABLES AS LOCALLY AS POSSIBLE.** variables will get cleaned up once out of scope 
+    - If you `return` an object, then it will wait longer to be cleaned up than if you didn't return. 
+
+  - will never clean up global variables as long as the page is open. 
+
+  
+
+#### Tips:
+
+Memory leak is common with loops or timers. Whatever the setTimeout or setInterval is referencing has to be kept alive!!
+
+STORE VARIABLES AS LOCALLY AS POSSIBLE
+
+If you `return` an object, then it will wait longer to be cleaned up than if you didn't return. 
+
+You can't (and shouldn't) force garbage collection! 
+
+AVOID USING `delete`!!!!
+
+- it was supposed to be used just for removing keys from a map
+- if you set a variable to null, then garbage collector will remove the original object 
+
+You can template and add functions/fields to the object.prototype, but benefits are negligible 
+
+Don't load from uninitialized or deleted elements. This won't make a difference in output, but it will make things slower.
+
+Don't write enormous functions, as they are more difficult to optimize
+
+Avoid copying big things. And avoid using for...in loops for it. If you have to copy objects, use an array or custom "copy constructor" function, like: 
+
+```javascript
+function clone(original) {
+  this.foo = original.foo;
+  this.bar = original.bar;
+}
+var copy = new clone(original);
+```
+
+
+
+
+
+**Objects vs. Arrays:**
+
+> If you want to store a bunch of numbers, or a list of objects of the same type, use an array.
+>
+> If what you semantically need is an object with a bunch of properties (of varying types), use an object with properties. **That’s pretty efficient in terms of memory, and it’s also pretty fast.**
+>
+> **Integer-indexed elements**, regardless of whether they’re stored in an array or an object, are [much faster to iterate over than object properties](http://jsperf.com/performance-of-array-vs-object/3).
+>
+> Properties on objects are quite complex: they can be created with setters, and with differing enumerability and writability. Items in arrays aren’t able to be customized as heavily — they either exist or they don’t. At an engine level, this allows for more optimization in terms of organizing the memory representing the structure. This is particularly beneficial when the array contains numbers. For example, when you need vectors, don’t define a class with properties x, y, z; use an array instead..
+
+
+
+#### Arrays
+
+Array literals are better (because it tells the size and type)
+
+```javascript
+// Here V8 can see that you want a 4-element array containing numbers:
+var a = [1, 2, 3, 4];
+
+// Don't do this:
+a = []; // Here V8 knows nothing about the array
+for(var i = 1; i <= 4; i++) {
+     a.push(i);
+}
+```
+
+Don't mix types within the same array! 
+
+Avoid holes in array (deleting a[x])
+
+
+
+#### Work cycle and Technique
+
+- Measure it: Find the slow spots in your application (~45%)
+- Understand it: Find out what the actual problem is (~45%)
+- Fix it! (~10%)
+
+Use Profiling in devtools 
 
 
 
